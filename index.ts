@@ -15,7 +15,7 @@ client.on('ready', () => {
 })
 
 client.on('messageCreate', (message) => {
-    if (message) {
+    if (message.content === 'kawaii') {
         message.reply({
             content: 'desu'
         })
