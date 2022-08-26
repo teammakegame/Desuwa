@@ -1,6 +1,13 @@
 import DiscordJS, { IntentsBitField } from 'discord.js'
 import dotenv from 'dotenv'
+const express = require('express')
 dotenv.config()
+
+const app = express();
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Application is running on ${port}`);
+});
 
 const client = new DiscordJS.Client({
     intents: [
