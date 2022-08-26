@@ -19,6 +19,7 @@ client.on('messageCreate', (message) => {
         message.reply({
             content: 'Desuwa is here!'
         })
+        console.log(message.content)
     }
 })
 
