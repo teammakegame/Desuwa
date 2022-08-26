@@ -1,1 +1,1 @@
-worker: node desuwa.js
+worker: node bot.js
