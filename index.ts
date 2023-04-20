@@ -19,4 +19,6 @@ client.on('messageCreate', (message) => {
     console.log(message.content);
 })
 
-client.login(process.env.BOT_TOKEN);
+console.log('test with new ide');
+
+client.login(process.env.BOT_TOKEN).then(r => console.log('Logged'));
