@@ -5,9 +5,12 @@ dotenv.config();
 const client = new Client({
     intents: [
         IntentsBitField.Flags.Guilds,
+        IntentsBitField.Flags.GuildVoiceStates,
         IntentsBitField.Flags.GuildMembers,
         IntentsBitField.Flags.GuildMessages,
-        IntentsBitField.Flags.MessageContent
+        IntentsBitField.Flags.GuildMessageReactions,
+        IntentsBitField.Flags.MessageContent,
+        IntentsBitField.Flags.DirectMessages
     ]
 })
 
@@ -16,7 +19,10 @@ client.on('ready', (c) => {
 });
 
 client.on('messageCreate', (message) => {
-    console.log(message.content);
+    if(message.author.bot) return;
+    if(message.content == 'hello') {
+        message.reply(`Hi ${message.author.username}`);
+    }
 })
 
 client.login(process.env.BOT_TOKEN);
