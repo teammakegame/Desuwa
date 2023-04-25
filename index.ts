@@ -1,8 +1,10 @@
-import {Client, IntentsBitField} from 'discord.js';
+import fs from 'node:fs';
+import path from 'node:path';
+import {Client, IntentsBitField, Events, Collection} from 'discord.js';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
-const client = new Client({
+const client:Client = new Client({
     intents: [
         IntentsBitField.Flags.Guilds,
         IntentsBitField.Flags.GuildVoiceStates,
@@ -13,6 +15,8 @@ const client = new Client({
         IntentsBitField.Flags.DirectMessages
     ]
 })
+
+// client.commands = new Collection();
 
 client.on('ready', (c) => {
     console.log(`${c.user.username} is online.`)
