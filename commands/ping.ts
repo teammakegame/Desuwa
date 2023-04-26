@@ -1,10 +1,11 @@
-import { SlashCommandBuilder } from "discord.js";
+import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('ping')
         .setDescription('Replies with Pongs'),
-    async execute(interaction: any) {
+    execute: async (interaction: ChatInputCommandInteraction) => {
+        if (!interaction.inCachedGuild()) return;
         await interaction.reply('Pong!');
     }
 }
