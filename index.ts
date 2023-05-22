@@ -80,6 +80,11 @@ client.on('interactionCreate', (interaction) => {
     if (interaction.commandName === 'ping') {
         interaction.reply('pong');
     }
+    if (interaction.commandName === 'sum') {
+        const sum1: number = interaction.options.get('first-number')?.value as number;
+        const sum2: number = interaction.options.get('second-number')?.value as number;
+        interaction.reply(`The total is ${sum1 + sum2}`);
+    }
 })
 
 client.login(process.env.BOT_TOKEN).then(r => console.log('Logged'));
