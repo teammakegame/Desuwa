@@ -1,4 +1,4 @@
-import {ApplicationCommandOptionType, Client, SlashCommandBuilder} from 'discord.js';
+import {Client, SlashCommandBuilder} from 'discord.js';
 import * as dotenv from 'dotenv';
 import fs from 'node:fs';
 import path from 'node:path';

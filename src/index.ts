@@ -29,7 +29,7 @@ export default client;
 
 client.commands = new Collection();
 client.buttons = new Collection();
-Handler(client).then(() => console.log('Handler checker'));
+Handler(client).then(() => {});
 
 client.login(process.env.BOT_TOKEN).then(() => console.log('Desuwa is awakening'));
 
