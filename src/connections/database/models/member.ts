@@ -19,11 +19,13 @@ const memberSchema = new mongoose.Schema({
         represented: {
             type: Number,
             default: 0
+        },
+        class: {
+            type: Number,
+            default: 0
         }
     },
     {timestamps: true}
 ).index({memberId: 1, guildId: 1}, {unique: true});
-
-// const Member = mongoose.model('Member', memberSchema);
 
 export default mongoose.model('Member', memberSchema);
