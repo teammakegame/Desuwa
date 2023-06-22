@@ -1,16 +1,20 @@
 import * as mongoose from "mongoose";
+import Constant from "../../../configs/constants";
 
-const categorySchema = new mongoose.Schema({
-        code: {
-            type: String,
-            required: true
-        },
+interface Category {
+    name: String;
+    parents?: mongoose.Schema.Types.ObjectId;
+    status: Number;
+}
+
+const categorySchema = new mongoose.Schema<Category>({
         name: {
             type: String,
             required: true
         },
-        category: {
-            type: String
+        parents: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: Constant.Schema.Category
         },
         status: {
             type: Number,
@@ -19,6 +23,6 @@ const categorySchema = new mongoose.Schema({
         }
     },
     {timestamps: true}
-).index({code: 1}, {unique: true});
+);
 
-export default mongoose.model('Category', categorySchema);
+export default mongoose.model<Category>(Constant.Schema.Category, categorySchema);
