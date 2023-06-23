@@ -6,7 +6,7 @@ export default async (schema: string) => {
     const Model = await import(`../connections/database/models/${schema.toLowerCase()}`);
     switch (schema) {
         case Constant.Schema.Category:
-            
+            Model.find({});
             break;
         case Constant.Schema.Member:
             break;    
